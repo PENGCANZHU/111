@@ -1,0 +1,31 @@
+<div class="container">
+
+
+
+  <div class="row">
+
+  <% fans.forEach(function(model){%>
+
+      <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="card" style="width: 20rem;" >
+              <img style="display:block;" height="250px"
+              class="card-img-top" src="<%=model.image%>">
+
+
+              <div class="card-body">
+
+                <a href="/fan/view"><h4 class="card-title"><%=model.city%></h4></ a>
+                <p class="card-text"><%=model.class%> class, <%=model.price%></p >
+                <p class="card-text"><%=model.datetill%>,Quota left:<%=model.quota%></p >
+                <p class="card-text"><%=model.dates%></p>
+              </div>
+           </div>
+
+      </div>
+
+
+
+  <%});%>
+  </div>
+
+</div>

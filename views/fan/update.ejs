@@ -1,0 +1,145 @@
+<!--update.ejs-->
+<h2>Person Create form</h2>
+<body>
+<form action="/person/update/<%=person.id%>" method="POST" class="form-horizontal">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-lg-6">
+    <div class="form-group">
+    <span class=" ">Region:</span>
+    <select class="form-control" id="region" onchange="regionSelected()" name="Fan[region]">
+      <option value="nan">Please select one:</option>
+      <option value="east">East Asia</option>
+      <option value="south-east">South-east Asia</option>
+      <option value="usa">Americas</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <span class=" ">City: </span>
+    <select class="form-control" id="city" name="Fan[city]" disabled>
+    </select>
+</div>
+
+<div class="form-group">
+    <span class=" ">Class:</span>
+    <select class="form-control" id="class" name="Fan[class]">
+      <option value="nan">Please select one:</option>
+      <option value="economy">Economy</option>
+      <option value="business">Business</option>
+    </select>
+</div>
+
+<div class="form-group">
+      <span class=" ">Price:</span>
+      <input type="number" class="form-control" id="price" name="Fan[price]">
+    </div>
+
+    <button type="submit" value="ADD">Update</button>
+
+</div>
+
+<div class="col-12 col-sm-6 col-lg-6">
+
+<div class="form-group">
+      <span class=" ">Image:</span>
+      <input type="text" class="form-control" id="image" name="Fan[image]">
+    </div>
+
+<div class="form-group">
+  <span calss=" ">Deal Valid Till:</span>
+<input type="text" class="form-control" id="deal" name="Fan[deal]">
+ </div>
+
+<div class="form-group">
+      <span class=" ">Quota:</span>
+      <input type="number" class="form-control" id="quota" name="Fan[quota]">
+    </div>
+
+<div class="form-group">
+  <span calss="input-group-addon">Date:</span>
+ <input type="text" value="01/01/2017 - 12/31/2017" id="daterange" name="Fan[Date]">
+
+  </div>
+
+
+</div>
+</div>
+</form>
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<!-- Include Date Range Picker -->
+<script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+
+<<script type="text/javascript">>
+function regionSelected() {
+
+    var region = document.getElementById("region").value;
+
+    var city = document.getElementById("city");
+city.options.length = 0;
+
+
+if (region == "east") {
+
+    var option = document.createElement("option");
+    option.text = "Osaka";
+    option.value = "osaka";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Seoul";
+    option.value = "seoul";
+    city.add(option);
+
+    city.disabled = false;
+
+} else if (region == "south-east") {
+
+    var option = document.createElement("option");
+    option.text = "Cebu";
+    option.value = "cebu";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Singapore";
+    option.value = "singapore";
+    city.add(option);
+
+    city.disabled = false;
+
+} else if (region == "usa") {
+
+    var option = document.createElement("option");
+    option.text = "Los Angeles";
+    option.value = "los angeles";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Boston";
+    option.value = "boston";
+    city.add(option);
+
+    city.disabled = false;
+
+}
+
+else {
+    city.disabled = true;
+}
+}
+regionSelected();
+</script>
+<script type="text/javascript"  >
+
+     $('input[id="daterange"]').daterangepicker();
+     </script>

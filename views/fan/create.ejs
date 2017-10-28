@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+    <form action="/fan/create" method="POST" >
+
+        <div class="col-sm-12 col-md-6 ">
+        <div class="form-group">
+        <span class=" ">region:</span>
+        <select  style="width:740px"  class="form-control" id="region" onchange="regionSelected()" name="Fan[region]">
+          <option value="nan">Please select one:</option>
+          <option value="east">East Asia</option>
+          <option value="south-east">South-east Asia</option>
+          <option value="usa">Americas</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <span class=" ">city: </span>
+        <select class="form-control" id="city" name="Fan[city]">
+        <option value="east">Please select one:</option>
+        <option value="east">Osaka</option>
+        <option value="east">Seoul</option>
+        <option value="south-east">Cebu</option>
+        <option value="south-east">Singapore</option>
+        <option value="Americas">Los Angeles</option>
+        <option value="Americas">Boston</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <span class=" ">class:</span>
+        <select class="form-control" id="class" name="Fan[class]">
+          <option value="nan">Please select one:</option>
+          <option value="economy">Economy</option>
+          <option value="business">Business</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+          <span class=" ">price:</span>
+          <input type="number" class="form-control" id="price" name="Fan[price]">
+          <button type="submit" value="ADD">Add</button>
+
+    </div>
+
+
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+
+    <div class="form-group">
+          <span class=" ">image:</span>
+          <input type="src" class="form-control" id="image" name="Fan[image]">
+        </div>
+
+    <div class="form-group">
+      <span calss=" ">deal:</span>
+    <input type="date" class="form-control" id="deal" name="Fan[deal]">
+     </div>
+
+    <div class="form-group">
+          <span class=" ">quota:</span>
+          <input type="number" class="form-control" id="quota" name="Fan[quota]">
+        </div>
+
+    <div class="form-group">
+      <span calss="input-group-addon">date</span>
+      <input type="text" value="01/01/2017 - 12/31/2017" id="daterange" name="Fan[date]">
+
+
+
+
+</div>
+    </div>
+
+    </form>
+    <!-- Include Required Prerequisites -->
+    <!-- Include Required Prerequisites -->
+    <!-- Include Required Prerequisites -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+    <!-- Include Date Range Picker -->
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+    <script src="https://cdn.bootcss.com/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+
+
+<script type="text/javascript">
+function regionSelected() {
+
+    var region = document.getElementById("region").value;
+
+    var city = document.getElementById("city");
+city.options.length = 0;
+
+
+if (region == "east") {
+
+    var option = document.createElement("option");
+    option.text = "Osaka";
+    option.value = "osaka";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Seoul";
+    option.value = "seoul";
+    city.add(option);
+
+    city.disabled = false;
+
+} else if (region == "south-east") {
+
+    var option = document.createElement("option");
+    option.text = "Cebu";
+    option.value = "cebu";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Singapore";
+    option.value = "singapore";
+    city.add(option);
+
+    city.disabled = false;
+
+} else if (region == "usa") {
+
+    var option = document.createElement("option");
+    option.text = "Los Angeles";
+    option.value = "los angeles";
+    city.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Boston";
+    option.value = "boston";
+    city.add(option);
+
+    city.disabled = false;
+
+}
+
+else {
+    city.disabled = true;
+}
+}
+
+</script>
+<script type="text/javascript"  >
+
+    $('input[id="daterange"]').daterangepicker();
+
+</script>
